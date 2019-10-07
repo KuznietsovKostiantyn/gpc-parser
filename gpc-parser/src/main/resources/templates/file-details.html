@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>File Details</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+    <h1 align="center">Transaction Details</h1>
+    <form th:action="@{/}" method="get">
+        <button type="submit" name="action">Back</button>
+    </form>
+    <br/>
+    <table th:if="${not #lists.isEmpty(gpc075)}">
+        <tr>
+            <th>Account number:</th>
+            <th:block th:each="model : ${gpc075}">
+                <td th:text="${model.accountNumber}"></td>
+            </th:block>
+        </tr>
+        <tr>
+            <th>Counterparty Account Number:</th>
+            <th:block th:each="model : ${gpc075}">
+                <td th:text="${model.counterpartyAccountNumber}"></td>
+            </th:block>
+        </tr>
+        <tr>
+            <th>Transaction Identifier:</th>
+            <th:block th:each="model : ${gpc075}">
+                <td th:text="${model.transactionIdentifier}"></td>
+            </th:block>
+        </tr>
+        <tr>
+            <th>Transaction Amount:</th>
+            <th:block th:each="model : ${gpc075}">
+                <td th:text="${model.transactionAmount}"></td>
+            </th:block>
+        </tr>
+        <tr>
+            <th>Accounting Type:</th>
+            <th:block th:each="model : ${gpc075}">
+                <td th:text="${model.accountingType}"></td>
+            </th:block>
+        </tr>
+        <tr>
+            <th>Variable Code:</th>
+            <th:block th:each="model : ${gpc075}">
+                <td th:text="${model.variableCode}"></td>
+            </th:block>
+        </tr>
+        <tr>
+            <th>Counterparty Bank Code:</th>
+            <th:block th:each="model : ${gpc075}">
+                <td th:text="${model.counterpartyBankCode}"></td>
+            </th:block>
+        </tr>
+        <tr>
+            <th>Constant Code:</th>
+            <th:block th:each="model : ${gpc075}">
+                <td th:text="${model.constantCode}"></td>
+            </th:block>
+        </tr>
+        <tr>
+            <th>Specific Code:</th>
+            <th:block th:each="model : ${gpc075}">
+                <td th:text="${model.specificCode}"></td>
+            </th:block>
+        </tr>
+        <tr>
+            <th>Value Date:</th>
+            <th:block th:each="model : ${gpc075}">
+                <td th:text="${model.valueDate}"></td>
+            </th:block>
+        </tr>
+        <tr>
+            <th>Transaction Description:</th>
+            <th:block th:each="model : ${gpc075}">
+                <td th:text="${model.transactionDescription}"></td>
+            </th:block>
+        </tr>
+        <tr>
+            <th>Currency Code:</th>
+            <th:block th:each="model : ${gpc075}">
+                <td th:text="${model.currencyCode}"></td>
+            </th:block>
+        </tr>
+        <tr>
+            <th>Posting Date:</th>
+            <th:block th:each="model : ${gpc075}">
+                <td th:text="${model.postingDate}"></td>
+            </th:block>
+        </tr>
+    </table>
+    <br/>
+    <br/>
+    <table th:if="${not #lists.isEmpty(gpc076)}">
+        <tr>
+            <th>Transaction Identification:</th>
+            <th:block th:each="model : ${gpc076}">
+                <td th:text="${model.transactionIdentification}"></td>
+            </th:block>
+        </tr>
+        <tr>
+            <th>Date Of Debiting From Counterparty:</th>
+            <th:block th:each="model : ${gpc076}">
+                <td th:text="${model.dateOfDebitingFromCounterparty}"></td>
+            </th:block>
+        </tr>
+        <tr>
+            <th>Comment:</th>
+            <th:block th:each="model : ${gpc076}">
+                <td th:text="${model.comment}"></td>
+            </th:block>
+        </tr>
+    </table>
+    <form th:action="@{/}" method="get">
+        <button type="submit" name="action">Back</button>
+    </form>
+</body>
+</html>
