@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <style>
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+
+            tr:nth-child(even) {
+                background-color: #dddddd;
+            }
+        </style>
+        <meta charset="UTF-8">
+        <title>File Info</title>
+    </head>
+    <body>
+        <form th:action="@{/import}" enctype="multipart/form-data" method="post">
+            <h1>Add file name:</h1>
+            <input type="file" name="file" /><br/><br/>
+            <input type="submit" value="Submit" />
+        </form>
+
+        <table>
+                <tr>
+                    <th>Account number:</th>
+                    <th:block th:each="model : ${gpcModels}">
+                        <td th:text="${model.accountNumber}"></td>
+                    </th:block>
+                </tr>
+                <tr>
+                    <th>Owner:</th>
+                    <th:block th:each="model : ${gpcModels}">
+                        <td th:text="${model.owner}"></td>
+                    </th:block>
+                </tr>
+                <tr>
+                    <th>Opening balance date:</th>
+                    <th:block th:each="model : ${gpcModels}">
+                        <td th:text="${model.openingBalanceDate}"></td>
+                    </th:block>
+                </tr>
+                <tr>
+                    <th>Opening balance:</th>
+                    <th:block th:each="model : ${gpcModels}">
+                        <td th:text="${model.returnOpeningBalance()}"></td>
+                    </th:block>
+                </tr>
+                <tr>
+                    <th>Closing balance:</th>
+                    <th:block th:each="model : ${gpcModels}">
+                        <td th:text="${model.returnClosingBalance()}"></td>
+                    </th:block>
+                </tr>
+                <tr>
+                    <th>Debit sum:</th>
+                    <th:block th:each="model : ${gpcModels}">
+                        <td th:text="${model.debitSum}"></td>
+                    </th:block>
+                </tr>
+                <tr>
+                    <th>Credit sum:</th>
+                    <th:block th:each="model : ${gpcModels}">
+                        <td th:text="${model.creditSum}"></td>
+                    </th:block>
+                </tr>
+                <tr>
+                    <th>Serial number:</th>
+                    <th:block th:each="model : ${gpcModels}">
+                        <td th:text="${model.serialNumber}"></td>
+                    </th:block>
+                </tr>
+                <tr>
+                    <th>Statement date:</th>
+                    <th:block th:each="model : ${gpcModels}">
+                        <td th:text="${model.statementDate}"></td>
+                    </th:block>
+                </tr>
+                <tr>
+                    <th>Details:</th>
+                    <th:block th:each="model : ${gpcModels}">
+                        <td><a th:href="@{/details/{id}(id=${model.id})}" th:text="Details"></a></td>
+                    </th:block>
+                </tr>
+        </table>
+    </body>
+</html>
